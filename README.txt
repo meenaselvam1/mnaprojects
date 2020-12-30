@@ -11,7 +11,8 @@ javaquestionsAns.txt. User is given an option to use a custom file
 when the program runs.
 
 The file should be placed in the folder from where you 
-are running the program(where the .exe file is kept.)
+are running the program.
+
 Here is the content of a sample javaquestionsAns.txt file.
 
 Interface can have static methods defined
