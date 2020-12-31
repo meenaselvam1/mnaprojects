@@ -1,3 +1,5 @@
+package com.practicaljava.javatechtest;
+
 import java.awt.FlowLayout;
 import javax.swing.*;
 

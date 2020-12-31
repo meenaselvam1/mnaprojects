@@ -1,3 +1,5 @@
+package com.practicaljava.javatechtest;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,9 +27,14 @@ public class TechTest {
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				String questionAnsFileName = readQuestionAnswerFileName();
-				if (!noFile)
-				    parseQuestionAnswerFile(questionAnsFileName);
+				String questionAnsFileName = "javaQuestionsAns.txt"; // default quiz file
+				if (args.length >= 1) 
+					questionAnsFileName = args[0];
+					
+				JOptionPane.showMessageDialog(null, "Using the quiz file:  " + questionAnsFileName, 
+						"Message", JOptionPane.PLAIN_MESSAGE);
+				
+				parseQuestionAnswerFile(questionAnsFileName);
 				if ((!noFile) &&  (!incorrectAnswerFormat)) {
 					if (!questionSet.isEmpty()) { 
 						View view = new View(); 
@@ -40,28 +47,7 @@ public class TechTest {
 		});
 
 	}
-	static String readQuestionAnswerFileName()
-	{
-		String questionAnsFileName = JOptionPane.showInputDialog("Enter Filename with Questions and Answers: Default is javaquestionAns.txt. " +
-				"Click OK to use the default");
-		try {
-			if (questionAnsFileName.isEmpty()) {
-				questionAnsFileName = "javaQuestionsAns.txt";
-				JOptionPane.showMessageDialog(null, "Using the default file:  " + questionAnsFileName, 
-						"Message", JOptionPane.PLAIN_MESSAGE);
-			}
-			else 
-				JOptionPane.showMessageDialog(null, "Using the custom file:  " + questionAnsFileName, 
-						"Message", JOptionPane.PLAIN_MESSAGE);
-
-		}
-		catch (NullPointerException e) {
-			noFile = true;
-		}
-        
-		return questionAnsFileName;
-
-	}
+	
 	// Nonblocking IO (nio) is used
 	static void parseQuestionAnswerFile(String questionAnsFile) {
 
