@@ -1,7 +1,6 @@
 import java.awt.FlowLayout;
 import javax.swing.*;
 
-// Singleton class View
 public class View {
 
 	private JButton buttonNext;
