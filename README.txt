@@ -1,3 +1,6 @@
+
+The folder javatechtest contains the java source code for the quiz program.
+
 To run the program: 
 1. Move the javasample.jar and the javaquestionsAns.txt 
 into any folder of your choice.
