@@ -1,4 +1,5 @@
 The subfolders under the folder src contain the java source code for the quiz program.
+JavaQuiz project contains java source code packaged in the com.practicaljava.javatechtest package. The source code is kept in appropriate folder structure, according to this package.
 
 To run the program: 
 1. Move the JavaTest.jar and the javaquestionsAns.txt 
