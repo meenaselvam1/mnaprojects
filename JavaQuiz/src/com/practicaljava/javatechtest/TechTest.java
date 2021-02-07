@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
 public class TechTest {
 	static int numberOfQuestions = 0;
 	static int questionNum = 0;
-	static Vector  questionSet = new Vector();
-	static Vector answerSet = new Vector();
+	static Vector<String>  questionSet = new Vector<>();
+	static Vector<String> answerSet = new Vector<>();
 	static boolean noFile = false;
 	static boolean incorrectAnswerFormat = false;
 

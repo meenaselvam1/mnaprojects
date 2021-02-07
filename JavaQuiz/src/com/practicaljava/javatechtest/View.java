@@ -7,7 +7,7 @@ import javax.swing.*;
 public class View {
 
 	private JButton buttonNext;
-	private JComboBox answerList;
+	private JComboBox<String> answerList;
 	private JTextField displayField;
 
 	/* 
@@ -35,7 +35,7 @@ public class View {
 
 		//Create the combo box, select the item at index 0.
 		//Indices start at 0, so 0 specifies the Select.
-		answerList = new JComboBox(answerStrings);
+		answerList = new JComboBox<String>(answerStrings) ;
 		answerList.setSelectedIndex(0);
 		windowContent.add(answerList);
 
@@ -76,7 +76,7 @@ public class View {
 	public JButton getButtonNext() {
 		return buttonNext;
 	}
-	public JComboBox getAnswerList() {
+	public JComboBox<String> getAnswerList() {
 		return answerList;
 	}
 

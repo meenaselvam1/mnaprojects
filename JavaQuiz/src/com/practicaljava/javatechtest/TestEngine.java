@@ -10,6 +10,7 @@ import javax.swing.*;
 public class TestEngine implements ActionListener {
 
 	View parent; // a reference to the View
+	int correctAnswers = 0;
 
 	// Constructor stores the reference to the
 	// View window in the member variable parent
@@ -25,7 +26,7 @@ public class TestEngine implements ActionListener {
 
 		if (e.getSource() == parent.getAnswerList()) {
 			String enteredAnswer;
-			JComboBox cb = (JComboBox)e.getSource();
+			JComboBox cb = (JComboBox) e.getSource();
 			String answer = (String)cb.getSelectedItem();
 			if ((!answer.equals("Select")) && (TechTest.questionNum < TechTest.numberOfQuestions))
 			{
@@ -47,8 +48,9 @@ public class TestEngine implements ActionListener {
 					// Display the next question
 					parent.display((String) TechTest.questionSet.get(TechTest.questionNum) );
 				else 
-					JOptionPane.showMessageDialog(null,"You finished the test. Close the window.",
-							                           "Message", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null,"You finished the test. Your score is " + 
+				                                 correctAnswers + " out of " + TechTest.numberOfQuestions + 
+				                                 ". Close the window.", "Message", JOptionPane.PLAIN_MESSAGE);
 			}
 		}
 
@@ -62,9 +64,12 @@ public class TestEngine implements ActionListener {
 			if (((String) TechTest.answerSet.get(TechTest.questionNum) != null) && (enteredAnswer != null)){
 				answer = (String) TechTest.answerSet.get(TechTest.questionNum);
 				if (answer.toString()
-						.equals(enteredAnswer.toString()) ) 
+						.equals(enteredAnswer.toString()) ) {
+					
+					correctAnswers++;
 					JOptionPane.showMessageDialog(null, "You answered correct. Click Next for the next question.",
 							                             "Message", JOptionPane.PLAIN_MESSAGE);
+				}	
 				else 
 					JOptionPane.showMessageDialog(null, "Incorrect answer. Click Next for the next question.",
 							                            "Message", JOptionPane.PLAIN_MESSAGE);
